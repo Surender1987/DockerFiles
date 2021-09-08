@@ -1,0 +1,12 @@
+version: "3.7" ## Version for docker compose file
+services:
+  sql-server-database:
+    container_name: sql-database
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports: 
+      - "1435:1433"
+    environment: 
+      SA_PASSWORD: "78Qw@34Er"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - D:\logData:/var/opt/mssql/data  ### it will save .mdf and .ldf files to physical storage so that we can avoid lose of data on container stop
